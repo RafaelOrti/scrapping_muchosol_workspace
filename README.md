@@ -14,6 +14,8 @@ El Mundo del día en el que lo abre, además se pueden añadir noticias a mano 
 - `cp ./dailytrends/.env.example .env`
 - `DOCKERFILE_EXTENSION="prod" docker-compose up -d`
 
+Sin `DOCKERFILE_EXTENSION="prod"` se ejecuta entorno .dev
+
 ## Endpoint Swagger
 
 - `/api-docs` contiene una vista con la que podemos probar los endpoints CRUD
