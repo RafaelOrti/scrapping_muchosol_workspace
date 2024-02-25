@@ -1,0 +1,17 @@
+# NodeJS Version 18
+FROM node:18-buster-slim
+
+# Copiar archivos de la aplicación
+COPY . ./app/dailyTrends
+
+# Establecer el directorio de trabajo
+WORKDIR /app/dailyTrends
+
+# Instalar dependencias
+RUN npm install --legacy-peer-deps
+
+# Exponer el puerto
+EXPOSE 3000
+
+# Ejecutar el servidor en modo de producción
+CMD ["npm", "run", "dev"]
