@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27018:27018"
+    environment:
+      DB_HOST: localhost
+      DB_PORT: 27018
+      DB_DATABASE: dev
+    networks:
+      - backend
+
+  rabbitmq:
+    image: rabbitmq:alpine
+    container_name: rabbitmq
+    ports:
+      - '5673:5673'
+
+  server:
+    container_name: server
+    build:
+      context: ./dailyTrends
+      dockerfile: Dockerfile.${DOCKERFILE_EXTENSION:-dev}
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: localhost
+      DB_PORT: 27018
+      DB_DATABASE: dev
+    volumes:
+      - ./:/app
+      - /app/dailyTrends/node_modules
+    restart: "unless-stopped"
+    depends_on:
+      - mongo
+
+  proxy:
+    container_name: proxy
+    build:
+      dockerfile: Dockerfile
+      context: ./proxy
+    ports:
+      - "80:80"
+    restart: "unless-stopped"
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local
