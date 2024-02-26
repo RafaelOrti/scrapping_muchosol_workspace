@@ -1,6 +1,13 @@
 # NodeJS Version 18
 FROM node:18-buster-slim
 
+# Instala las dependencias necesarias, incluida libgobject
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        chromium \
+        libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copiar archivos de la aplicación
 COPY . ./app/dailyTrends
 

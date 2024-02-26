@@ -12,9 +12,9 @@ El Mundo del día en el que lo abre, además se pueden añadir noticias a mano 
 
 - `git clone https://github.com/RafaelOrti/scrapping_muchosol_workspace`
 - `cp ./dailytrends/.env.example .env`
-- `DOCKERFILE_EXTENSION="prod" docker-compose up -d`
+- `docker-compose up -d`
 
-Sin `DOCKERFILE_EXTENSION="prod"` se ejecuta entorno .dev
+Con `DOCKERFILE_EXTENSION="prod"` se ejecuta entorno .prod
 
 ## Endpoint Swagger
 
