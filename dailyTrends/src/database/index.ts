@@ -1,13 +1,13 @@
-import mongoose, { connect, set } from 'mongoose';
+import mongoose, { set } from 'mongoose';
 import { NODE_ENV, DB_HOST, DB_PORT, DB_DATABASE } from '../config';
-import { logger } from '../utils/logger'; // Asumiendo que tienes un módulo logger
+import { logger } from '../utils/logger'; // Assuming you have a logger module
 
 export const dbConnection = async () => {
   const dbConfig = {
     url: `mongodb://${DB_HOST}:${DB_PORT}/${DB_DATABASE}`,
   };
 
-  logger.info('Configuración de la base de datos:', dbConfig);
+  logger.info('Database configuration:', dbConfig);
 
   mongoose.set('strictQuery', false);
 
@@ -16,12 +16,9 @@ export const dbConnection = async () => {
   }
 
   try {
-    await mongoose.connect(dbConfig.url, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    logger.info('Conectado a MongoDB');
+    await mongoose.connect(dbConfig.url);
+    logger.info('Connected to MongoDB');
   } catch (error) {
-    logger.error('Error al conectar a MongoDB:', error);
+    logger.error('Error connecting to MongoDB:', error);
   }
 };
