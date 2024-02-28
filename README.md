@@ -35,9 +35,7 @@ Detener contenedores:
 
 ## Arquitectura
 
-
-![Screenshot from 2024-02-25 20-30-16](https://github.com/RafaelOrti/scraping_muchosol/assets/45425367/e51eaf6a-9692-4186-8537-28cc723b7b6a)
-
+![Screenshot from 2024-02-28 18-39-51](https://github.com/RafaelOrti/scrapping_muchosol_workspace/assets/45425367/456cb133-6871-4f0c-abcd-ffa02136d22e)
 
 ![Screenshot from 2024-02-25 20-46-24](https://github.com/RafaelOrti/scraping_muchosol/assets/45425367/15a09cf1-fcf4-46ad-ae21-a3426b6b184c)
 
